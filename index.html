@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Namastey React</title>
+  </head>
+  <body>
+    <h1>On the top of root</h2>
+      <div id="header">
+        <h1>Neha is here at header</h1>      
+      </div>
+    <div id="root">
+      <h1>Neha is here</h1>
+      <h1>Neha is here</h1>
+     
+      <!-- Whatever that is passed inside the root will be replaced by  whatever we are passing inside react with the help of root.render method -->
+    </div>
+    <h1>Below the root</h2> 
+      <!-- The content which is passed outside the root is getting rendered, which means that react is only present inside div id= "root".
+        We can use React at any portion of our browser like header, footer, sidebar.
+       -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <script src="./App.js">
+      // When you add this before importing react it will throw an error stating the Reference error React is not defined, therefore the sequence of this code matters
+    </script>
+  </body>
+</html>
+
+
+<!-- 
+  Not all frameworks can be applied to ana existing app whereas on the other hand React 
+  can be applied inside an existing app by using cdn links. That's why React is called as library.
+  A library is a collection of packages that perform specific operations whereas a framework contains 
+  the basic flow and architecture of an application. The major difference between them is the complexity. 
+  Libraries contain a number of methods that a developer can just call whenever they write code. 
+  React js is library and Angular is Framework.
+  The framework provides the flow of a software application and tells the developer what it needs and 
+  calls the code provided by the developer as required. 
+  If a library is used, the application calls the code from the library.
+ -->
