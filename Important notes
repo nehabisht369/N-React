@@ -1,0 +1,85 @@
+Important notes
+
+Before pushing the code to production:-
+
+- Bundling
+- Codes plating
+- Chunking
+- Image optimization
+- Compress the code
+
+Bundler - packages your app so that it can be shipped to the production
+
+Bundlers: -
+
+- Webpack
+- Parcel
+- Vite
+
+Dev dependency - required only in development
+normal dependency - also required in production
+
+Difference Between tilde ~ and caret^
+
+-> package-lock.json
+
+This file is intended to be committed into source repositories, and serves various purposes:
+
+Describe a single representation of a dependency tree such that teammates, deployments, and continuous integration are guaranteed to install exactly the same dependencies.
+
+Provide a facility for users to "time-travel" to previous states of node_modules without having to commit the directory itself.
+
+Facilitate greater visibility of tree changes through readable source control diffs.
+
+Optimize the installation process by allowing npm to skip repeated metadata resolutions for previously-installed packages.
+
+As of npm v7, lockfiles include enough information to gain a complete picture of the package tree, reducing the need to read package.json files, and allowing for significant performance improvements.
+
+Transitive dependencies:-
+
+parcel can itself be dependent on lot of things. Parcel cannot do certain things on its own. It would require help of lot of packages.
+
+-> If you have package.json & package-lock.json, you can recreate the node modules. Therefore we need to push package.json & package-lock.json.
+
+-> Just like we have npm ,similarly we have npx.
+npx is used for executing a package
+
+-> Fetching React from CDN links will require network call whereas if use it as a library (present in the node modules) it would be a convenient procedure.
+package-lock.json is also maintaining its version whereas in the CDN link we have to change the version manually whenever react version gets updated in the future.
+
+-> After installing react & react-dom we won't be needing CDN links.
+
+- @parcel/transformer-js: @Browser scripts cannot have imports or exports
+
+* Basically what we are doing is we are injecting the App.js inside index.html. So, it treats it as a browser scripts. So it will think that app.js would be containing plain javascript code. But we have imported React & react-dom inside App.js & index.html so we need to mention that in our script that it is of type "module".
+* After adding type module, it will not behave like a normal browser script.
+* When we do some changes in our App.js file, Parcel helps us to refresh our browser without restarting the server. This automatic refreshing is known as HMR(Hot module Replacement)
+* Parcel uses file watching algorithm to keep track of every save that we do in our project.
+* Caching - Faster builds
+
+# Parcel
+
+- Dev build
+- Local server
+- HMR
+- File watching algorithm - written in C++
+- Caching - faster builds
+- Image optimization
+- Minification
+- Bundling
+- Compressing
+- Consistent Hashin- Code Splitting
+- Differenetial bundling - support older browsers
+- Diagnostic
+- Error handling
+- HTTPs
+- Tree shaking algorithm -remove unused code
+- Different dev & production bundles
+- npx parcel build index.html
+
+* to make prod build, also remove "main" from package.json before making prod build
+  The production build will go inside dist folder
+
+<!-- parcel.org documentation -->
+
+Ques. What makes your react app faster?

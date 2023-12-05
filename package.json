@@ -1,0 +1,35 @@
+{
+  "name": "namasteyreact",
+  "version": "1.0.0",
+  "description": "This is namastey react by AS",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nehabisht87/Notes.git"
+  },
+  "keywords": [
+    "react",
+    "namastey",
+    "react"
+  ],
+  "author": "Neha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nehabisht87/Notes/issues"
+  },
+  "homepage": "https://github.com/nehabisht87/Notes#readme",
+  "devDependencies": {
+    "parcel": "^2.10.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browsersList": [
+    "last 10 Chrome versions"
+  ]
+}
