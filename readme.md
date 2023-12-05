@@ -12,6 +12,6 @@
 
 - To make prod build:-
 
-## Also remove "main" from package.json before making prod build 
+* Also remove "main" from package.json before making prod build 
 
 - npx parcel build index.html
