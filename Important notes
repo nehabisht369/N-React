@@ -1,3 +1,12 @@
 Important notes
 
-Functional components - normal JS function like Arrow function which return some JSX element
+- Functional components - normal JS function like Arrow function which return some JSX element
+
+- Cross Site Scripting (XSS)
+  XSS attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user.
+
+These three are the same thing: -
+
+- <Title></Title>
+- {Title()}
+- <Title/>
