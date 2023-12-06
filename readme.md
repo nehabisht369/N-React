@@ -15,3 +15,5 @@
 <!-- Also remove "main" from package.json before making prod build -->
 
 - npx parcel build index.html
+
+<!-- Explore the attributes of different tags -->

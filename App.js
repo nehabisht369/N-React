@@ -1,63 +1,34 @@
-/** 
- * 
- * To create nested HTML structure inside React
- * /**
- * To create multiple children inside a tag or we can say a children with its sibling:-
- * The third parameter which you pass inside the React.createElement would be inside an array of children
- 
- <div id="parent">
-    <div id ="child">
-        <h1>"I'm an h1 tag"</h1>
-        <h2>"I'm an h2 tag"</h2>
-    </div>
- </div>
- * 
-*/
-
-/**
- * ReactElement(Object) => HTML(Browser Understands)
- * React.createElement creates an object which while rendering on DOM converts it into HTML which the browser understands
- */
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const parent = React.createElement(
-  "div",
-  { id: "parent" },
-  React.createElement("div", { id: "child" }, [
-    React.createElement("h1", {}, "This is Namaste React 🚀"),
-    React.createElement("h2", {}, "I'm an h2 tag"),
-  ])
-);
+// createElement approach is not a good way as it looks complex.
+// That's why we use JSX instead of createElement.
 
 const heading = React.createElement(
   "h1",
-  { id: "heading", abc: "xyz" }, // id & abc are attributes given by user
-  "Namastey Everyone from React!"
+  { id: "heading" },
+  "Namastey React 🚀"
 );
-// console.log("heading", heading);
+const jsxheading = (
+  <h1 id="heading" className="head" tabname="5">
+    Namastey React using JSX 🚀
+  </h1>
+);
 
-// console.log("parent", parent);
+console.log("js", jsxheading);
 
-const root = ReactDOM.createRoot(document.getElementById("header"));
-root.render(parent);
+//JSX is not HTML in JS. It has HTML-like or XML-like syntax
+// JSX is transpiled before it reaches the JS engine - PARCEL
 
-/**
-heading is basically an object, which has type h1 and it has props as well which are as follows:-
-Props are children & the attributes that we are passing in
-abc: "xyz"
-children : "Namastey Everyone from React!"
-id: "heading"
-**/
+// As soon as we write JSX, Parcel creates bable which
+//  quickly converts this code in such a way that will be understood by React.
+// Babel converts the JSX into code that is understood by browser/React/JS engine
 
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(heading);
+// JSX => React.createElement - JS object => HtmlElement(render)
 
-/**
- 
-This root.render method  puts the heading tag inside the root of the browser
-render method is converting this heading object into the h1 tag
+//JSX code is transpiled into React.createElement. React.createElement is a JS object which is
+//  rendered onto the DOM as HTML element. Babel converts JSX code into React.createElement
+// Visit Babel.js
 
- * 
- * 
- */
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(jsxheading);
