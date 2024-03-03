@@ -1,51 +1,92 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { restaurants } from "./utils/constants";
 
-const num = 10000;
+/* My Food App structure will look like this, 
+      1) Header
+                - Logo
+                - Nav Items(right side)
+                - Cart
+      2) Body
+           - Search bar
+                - Restaurants List
+                    - Restaurant card
+                        - Image
+                        - Name
+                        - Rating     
+      3)Footer
+                - Links
+                - Copyrights
+       
+*/
+const imgBaseUrl =
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_240/";
 
-const elem = <span>React Element</span>;
-
-const Title = () => {
+const Header = () => {
   return (
-    <h1 className="head" tabIndex="4">
-      Hey
-    </h1>
-  );
-};
-
-// fn1 & fn2 will return true as they are same
-
-// React functional component
-const HeadingComponent = () => {
-  return (
-    <div id="container">
-      {num + 500}
-
-      <Title />
-      <h3>Namastey React using functional component 🚀 </h3>
+    <div className="header">
+      <div className="logo-container">
+        <img
+          className="logo"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHs7fXUlfjWTdGIVsRVfltF6hPDm-ZH_2vOw&usqp=CAU"
+        />
+      </div>
+      <div className="nav-items">
+        <ul>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Contact</li>
+          <li>Cart</li>
+        </ul>
+      </div>
     </div>
   );
 };
 
-// React element
-const head = (
-  <h1 id="heading" className="head" tabname="5">
-    {/* Namastey React using JSX 🚀 Namaste React */}
-    {elem}
-    {Title()}
-    <HeadingComponent />
-  </h1>
-);
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(head);
-
-// Difference between Element & component
-// Component composition -> Component inside component
-// Inside JSX when we write curly braces then inside curly braces {} we can run any piece of JS code.
-
-const fn1 = () => {
-  return true;
+const styleCard = {
+  backgroundColor: "#f0f0f0",
 };
 
-const fn2 = () => true; // shorthand syntax
+const RestaurantCard = (props) => {
+  const { resData } = props;
+  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } =
+    resData?.info;
+  return (
+    <div className="restaurant-card" style={styleCard}>
+      <img alt="res-img" id="res-img" src={imgBaseUrl + cloudinaryImageId} />
+      <h3>{name}</h3>
+      <h4>{cuisines?.join(", ")}</h4>
+      <h4>{avgRating}</h4>
+      <h4>{costForTwo}</h4>
+      <h4>{sla?.deliveryTime} mins</h4>
+    </div>
+  );
+};
+
+const Body = () => {
+  return (
+    <div className="body">
+      <div className="search">Search</div>
+      <div className="restaurant-container">
+        {restaurants.map((item) => {
+          console.log("item", item);
+          return <RestaurantCard key={item?.info?.id} resData={item} />;
+        })}
+      </div>
+    </div>
+  );
+};
+
+const AppLayout = () => {
+  return (
+    <div class="app">
+      <Header />
+      <Body />
+    </div>
+  );
+};
+
+export default AppLayout;
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<AppLayout />);

@@ -1,12 +1,5 @@
 Important notes
 
-- Functional components - normal JS function like Arrow function which return some JSX element
-
-- Cross Site Scripting (XSS)
-  XSS attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user.
-
-These three are the same thing: -
-
-- <Title></Title>
-- {Title()}
-- <Title/>
+- Passing props to a component is just like passing argument to a function
+- config-driven UI
+- We don't recommend using index as keys if the order of item may change.
