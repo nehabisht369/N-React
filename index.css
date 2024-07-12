@@ -24,6 +24,7 @@
 .search {
     padding: 10;
 }
+
 .restaurant-card {
     width: 240px;
    border: 1px solid black;
@@ -32,8 +33,14 @@
    
 }
 
+.res-card-img-div {
+    height: 250px;
+    width: 250px;
+}
+
 .res-img {
-    width: 20%;
+    height: 100%;
+    width: 100%;
     
 }
 .restaurant-container {
