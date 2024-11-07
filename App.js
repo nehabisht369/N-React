@@ -33,7 +33,6 @@ const heading = React.createElement(
   { id: "heading", abc: "xyz" }, // id & abc are attributes given by user
   "Namastey Everyone from React!"
 );
-// console.log("heading", heading);
 
 console.log("parent", parent);
 
