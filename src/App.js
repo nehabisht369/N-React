@@ -21,6 +21,8 @@ import Body from "./components/Body";
        
 */
 
+console.log('<Body />', <Body />); // returns an object
+
 const AppLayout = () => {
   return (
     <div class="app">
